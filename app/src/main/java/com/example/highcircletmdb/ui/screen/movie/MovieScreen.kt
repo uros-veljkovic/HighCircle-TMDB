@@ -1,5 +1,7 @@
 package com.example.highcircletmdb.ui.screen.movie
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.highcircletmdb.ui.components.MoviesList
@@ -49,7 +52,12 @@ fun MovieScreen(
     ) { paddingValues ->
         when (state) {
             is MoviesViewModel.State.Loading -> {
-                CircularProgressIndicator(modifier = Modifier.fillMaxSize())
+                Column(
+                    modifier = Modifier.padding(paddingValues),
+                    verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    CircularProgressIndicator(modifier = Modifier)
+                }
             }
 
             is MoviesViewModel.State.Success -> {

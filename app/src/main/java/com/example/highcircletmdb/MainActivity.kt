@@ -37,8 +37,11 @@ fun App() {
     val navController = rememberNavController()
 
     Scaffold { innerPadding ->
-        NavHost(navController, startDestination = Destination.AllMovies, Modifier.padding(innerPadding)) {
-            composable<Destination.AllMovies> { backstackEntry ->
+        NavHost(
+            navController = navController, startDestination = Destination.AllMovies,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable<Destination.AllMovies> {
                 MovieScreen(onCardClick = {
                     navController.navigate(
                         Destination.MovieDetails(it)
@@ -46,7 +49,10 @@ fun App() {
                 })
             }
             composable<Destination.MovieDetails> {
-                MovieDetailsScreen(movieId = it.toRoute<Destination.MovieDetails>().id)
+                MovieDetailsScreen(
+                    movieId = it.toRoute<Destination.MovieDetails>().id,
+                    navController = navController
+                )
             }
         }
     }

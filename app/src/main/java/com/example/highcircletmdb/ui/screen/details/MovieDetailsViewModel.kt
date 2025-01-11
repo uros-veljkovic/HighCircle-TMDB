@@ -6,7 +6,6 @@ import com.example.highcircletmdb.domain.model.mapper.toUIDetails
 import com.example.highcircletmdb.domain.repository.IMovieRepository
 import com.example.highcircletmdb.domain.repository.RepositoryResponse
 import com.example.highcircletmdb.ui.model.MovieDetailsUi
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
